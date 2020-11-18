@@ -11,7 +11,7 @@
 </ol>
 <h1> TD3 BD </h1>
 <ol>
-    <li><a href="series.php">Base De Donnée</a></li>
+    <li><a href="series.html">Base De Donnée</a></li>
 </ol>
 <h1> TD5 Cookies </h1>
 <ol>
