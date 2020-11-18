@@ -17,7 +17,7 @@
 <ol>
     <li><a href="cookie.php">Cookie nbr de chargement</a></li>
     <li><a href="morpion.php">Morpion</a></li>
-    <li><a href="identification.php">identification</a></li>
+    <li><a href="pages/connexion.html">identification</a></li>
 </ol>
 
 <li><a href="date.php">none</a></li>
