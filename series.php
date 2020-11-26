@@ -20,7 +20,7 @@
         require_once("classeSerie.php");
 
         $initale = $_GET['initiale'];
-        $brSerieParPage = 10;
+        $nbrSerieParPage = 10;
         $page = ($_GET['page'] != null ? (int)$_GET['page'] : 1);
 
         
@@ -50,11 +50,11 @@
             $queryMAX = $pdo->query($sqlMAX);
         }
         $pageMax = (int)$queryMAX->fetch()[0];
-        $pageMax = ceil($pageMax / $brSerieParPage);
+        $pageMax = ceil($pageMax / $nbrSerieParPage);
 
         //FIN CONSTRUCTION REQUETTE
         $sql = "SELECT * " . $sql;
-        $sql = $sql . ' ORDER BY title ASC LIMIT ' . ($page - 1) * $brSerieParPage . ', ' . $brSerieParPage;
+        $sql = $sql . ' ORDER BY title ASC LIMIT ' . ($page - 1) * $nbrSerieParPage . ', ' . $nbrSerieParPage;
 
 
         //BOUTONS
@@ -73,8 +73,8 @@
 
             $query->setFetchMode(PDO::FETCH_CLASS, 'Series');
             while ($serie = $query->fetch()) {
-                echo '<li><a href="serie.php?titre=' . $serie->title . '">' . $serie->title . '</a></li>';
-                echo '<img src="data:image/jpeg;base64,' . base64_encode($serie->poster) . '" />';
+                echo '<a href="serie.php?titre=' . $serie->title . '"><li>' . $serie->title . '</li>';
+                echo '<img src="data:image/jpeg;base64,' . base64_encode($serie->poster) . '" /></a>';
             }
         } else {
             var_dump($pdo->errorInfo());

@@ -9,7 +9,7 @@ if (isset($_POST['id']) && isset($_POST['mdp'])) {
             session_start();
             $_SESSION['nom'] = $row['name'];
             $_SESSION['ident'] = $row['id'];
-            header('location:page1.php');
+            header('location:'.$_SERVER['HTTP_REFERER']);
         } else {
             header('Location:connexion.html');
         }
