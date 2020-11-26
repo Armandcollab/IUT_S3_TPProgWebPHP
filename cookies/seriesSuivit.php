@@ -7,13 +7,13 @@
 </head>
 
 <body>
-<a href="../accueil.php">accueil</a>
+    <a href="../accueil.php">accueil</a>
     <ol>
         <?php
 
+        require_once("sessionStart.php");
         require_once("../classeSerie.php");
         require_once("../bdInit.php");
-        session_start();
 
         $nbrSerieParPage = 10;
         $page = ($_GET['page'] != null ? (int)$_GET['page'] : 1);

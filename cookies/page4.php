@@ -2,6 +2,7 @@
 require_once("sessionStart.php");
 require_once("../bdInit.php");
 session_start();
+var_dump($_SESSION);
 ?>
 <h2>Connecté en tant que : <?= $_SESSION['nom'] ?> </h2>
 <h1>Page 4 privée</h1>

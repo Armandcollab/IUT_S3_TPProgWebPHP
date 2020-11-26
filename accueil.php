@@ -21,7 +21,8 @@
 <ol>
     <li><a href="cookie.php">Cookie nbr de chargement</a></li>
     <li><a href="morpion.php">Morpion</a></li>
-    <li><a href="cookies/connexion.php">Identification</a></li>
+    <li><a href="cookies/connexion.php">Connexion</a></li>
+    <li><a href="cookies/deconnexion.php">Déconnexion</a></li>
     <li><a href="series.php">Suivre une série</a></li>
     <li><a href="cookies/seriesSuivit.php">Séries suivit</a></li>
 </ol>

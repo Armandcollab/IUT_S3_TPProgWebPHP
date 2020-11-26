@@ -1,10 +1,10 @@
+<a href="accueil.php">accueil</a>
 <?php
 require_once("bdInit.php");
 require_once("classeSerie.php");
 session_start();
 
 //Bouton retour
-echo '<a href="'.$_SERVER['HTTP_REFERER'].'">Retour</a>';
 
 $sql = "SELECT * FROM `series` WHERE title LIKE ?";
 $query = $pdo->prepare($sql);
@@ -25,7 +25,7 @@ if ($query->execute([$_GET["titre"]])) {
                 echo '<a href="cookies/follow.php?id=' . $serie->id . '">Suivre </a>';
             }
         } else {
-            echo '<a href="cookies/connexion.html">Se connecter pour pouvoir suivre</a>';
+            echo '<a href="cookies/connexion.php">Se connecter pour pouvoir suivre</a>';
         }
         echo '<br>';
         // image

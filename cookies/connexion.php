@@ -11,26 +11,35 @@
     <?php
 
     require_once("../bdInit.php");
+    session_start();
 
-    if (isset($_SESSION['nom']) && isset($_SESSION['ident']))
-        if (isset($_POST['id']) && isset($_POST['mdp'])) {
-            $sql = "SELECT * FROM user WHERE (user.user_id=? and user.password=?)";
-            $query = $pdo->prepare($sql);
-            if ($query->execute([$_POST['id'], $_POST['mdp']])) {
-                if ($row = $query->fetch()) {
-                    session_start();
-                    $_SESSION['nom'] = $row['name'];
-                    $_SESSION['ident'] = $row['id'];
-                    if (isset($_POST['HTTP_REFERER']))
-                        header('location:' . $_POST['HTTP_REFERER']);
-                    else
-                        header('location:' . $_SERVER['HTTP_REFERER']);
+    if (isset($_SESSION['nom']) && isset($_SESSION['ident'])) {
+        header('location:' . $_SERVER['HTTP_REFERER']);
+    }
+    if (isset($_POST['id']) && isset($_POST['mdp'])) {
+        $sql = "SELECT * FROM user WHERE (user.user_id=? and user.password=?)";
+        $query = $pdo->prepare($sql);
+        if ($query->execute([$_POST['id'], $_POST['mdp']])) {
+            if ($row = $query->fetch()) {
+                $_SESSION['nom'] = $row['name'];
+                $_SESSION['ident'] = $row['id'];    
+                var_dump($_SESSION);
+                if (isset($_SESSION['precedentePage'])) {
+                    $precedentePage = $_SESSION['precedentePage'];
+                    var_dump($_SESSION);
+                    unset($_SESSION['precedentePage']);
+                    echo $precedentePage;
+                    header('location:' .  $precedentePage);
+                } else{
+                    header('location:' . $_SERVER['HTTP_REFERER']);
                 }
             }
         }
+    }else if (!isset($_SESSION['precedentePage'])) {
+        $_SESSION['precedentePage'] = $_SERVER['HTTP_REFERER'];
+    }
+    
     ?>
-
-
 
     <form action="" method="post">
         Identifiant:

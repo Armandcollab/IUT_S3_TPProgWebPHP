@@ -1,6 +1,5 @@
 <?php
 require_once("sessionStart.php");
-unset($_SESSION['nom']);
-unset($_SESSION['ident']);
+session_destroy();
 
-header('Location:connexion.html');
+header('Location:'.$_SERVER['HTTP_REFERER']);
