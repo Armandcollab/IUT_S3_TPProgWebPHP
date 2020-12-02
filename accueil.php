@@ -23,6 +23,7 @@
     <li><a href="morpion.php">Morpion</a></li>
     <li><a href="cookies/connexion.php">Connexion</a></li>
     <li><a href="cookies/deconnexion.php">Déconnexion</a></li>
+    <li><a href="cookies/page1.php">Pages Privées</a></li>
     <li><a href="series.php">Suivre une série</a></li>
     <li><a href="cookies/seriesSuivit.php">Séries suivit</a></li>
 </ol>
